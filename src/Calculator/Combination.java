@@ -36,8 +36,10 @@ public class Combination extends javax.swing.JFrame {
         x=f.factorial(x);
         // determine the min value after get factorialization
         min=f.factorial(min);
-        hasil = x/(min*y);
+        hasil = x/(min*f.factorial(y));
         return hasil;
+        
+        
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

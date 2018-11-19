@@ -26,14 +26,29 @@ public class PowerOfNumbers extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     // powersofnumbers logic function
-    public long powersofnumbers(long x, long y){
+    public double powersofnumbers(double x, double y){
+        double hasil=1;
+        
+        if(y<0){
+               hasil = Math.pow(x,y);
+        }
+        else{
         // loop as much as the y values (the powers)
-        for (int i = 1; i <y;i++){
+        for (int i = 1; i <=y;i++){
             // multiply the x with itself
-            x *= x;
+            hasil *= x;
+        }
+        }
+        if (x<0){
+            if(y>0){
+            hasil*=-1;
+            }
+            else{
+                hasil=hasil;
+            }
         }
         // return the x values after final loop
-        return x;
+        return hasil;
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -151,7 +166,8 @@ public class PowerOfNumbers extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // call the powersofnumbers function and show the result to the form
-        jTextField3.setText(Long.toString(powersofnumbers(Long.parseLong(jTextField1.getText()) , Long.parseLong(jTextField2.getText()))));
+        jTextField3.setText(Double.toString(powersofnumbers(Double.parseDouble(jTextField1.getText()) , 
+                Double.parseDouble(jTextField2.getText()))));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

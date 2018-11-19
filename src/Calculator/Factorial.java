@@ -11,6 +11,8 @@ package Calculator;
  */
 public class Factorial extends javax.swing.JFrame {
 
+    
+    Boolean t = false;
     /**
      * Creates new form Factorial
      */
@@ -27,12 +29,22 @@ public class Factorial extends javax.swing.JFrame {
     
     // factorialization
     public long factorial (long x){
+        long i=0;
+        if (x ==0){
+            x=1;
+        }
+        else if(x<0){
+        t = true;
+        }
         
-        for (long i=x-1;i>0;i--){
-            x *= i; 
+        else{
+        for (i=x-1;i>0;i--){
+            x *= i;            
+        }
         }
         return x;
     }
+    
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -142,7 +154,14 @@ public class Factorial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // call factorialization function and execute it
+        
+        
         jTextField2.setText(Long.toString(factorial(Long.parseLong(jTextField1.getText())))); 
+        
+        if (t==true){
+            jTextField2.setText("Unknown!");
+            t=false;
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
