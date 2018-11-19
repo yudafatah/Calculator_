@@ -26,11 +26,16 @@ public class PowerOfNumbers extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     // powersofnumbers logic function
-    public double powersofnumbers(double x, double y){
-        double hasil=1;
+    public float powersofnumbers(float x, float y){
+        float hasil=1;
         
         if(y<0){
-               hasil = Math.pow(x,y);
+            y=y*-1;
+               for (int i = 1; i <=y;i++){
+            // multiply the x with itself
+            hasil *= x;
+               }
+               hasil = 1/hasil;
         }
         else{
         // loop as much as the y values (the powers)
@@ -39,14 +44,7 @@ public class PowerOfNumbers extends javax.swing.JFrame {
             hasil *= x;
         }
         }
-        if (x<0){
-            if(y>0){
-            hasil*=-1;
-            }
-            else{
-                hasil=hasil;
-            }
-        }
+        
         // return the x values after final loop
         return hasil;
     }
@@ -112,8 +110,11 @@ public class PowerOfNumbers extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(154, 154, 154))
             .addGroup(layout.createSequentialGroup()
@@ -123,13 +124,11 @@ public class PowerOfNumbers extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton2)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,8 +165,8 @@ public class PowerOfNumbers extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // call the powersofnumbers function and show the result to the form
-        jTextField3.setText(Double.toString(powersofnumbers(Double.parseDouble(jTextField1.getText()) , 
-                Double.parseDouble(jTextField2.getText()))));
+        jTextField3.setText(Float.toString(powersofnumbers(Float.parseFloat(jTextField1.getText()) , 
+                Float.parseFloat(jTextField2.getText()))));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
